@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Luan\\OneDrive\\Desktop\\Calculadora IMC\\Calculadora IMC\\Calculadora IMC\\Calculadora IMC.csproj",
+      "projectUniqueName": "C:\\Users\\Luan\\OneDrive\\Desktop\\Calculadora IMC\\Calculadora IMC\\Calculadora IMC.csproj",
       "projectName": "Calculadora IMC",
-      "projectPath": "C:\\Users\\Luan\\OneDrive\\Desktop\\Calculadora IMC\\Calculadora IMC\\Calculadora IMC\\Calculadora IMC.csproj",
+      "projectPath": "C:\\Users\\Luan\\OneDrive\\Desktop\\Calculadora IMC\\Calculadora IMC\\Calculadora IMC.csproj",
       "packagesPath": "C:\\Users\\Luan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Luan\\OneDrive\\Desktop\\Calculadora IMC\\Calculadora IMC\\Calculadora IMC\\obj\\",
+      "outputPath": "C:\\Users\\Luan\\OneDrive\\Desktop\\Calculadora IMC\\Calculadora IMC\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Luan\\AppData\\Roaming\\NuGet\\NuGet.Config",
