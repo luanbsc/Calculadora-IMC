@@ -5,8 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Calculadora_IMC"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow" Height="600" Width="800">
+	<Grid>
+		<StackPanel HorizontalAlignment="Center"
+                Orientation="Vertical"
+                Margin="10">
+			<TextBlock Text="Usuários"
+					   FontSize="30"
+					   TextAlignment="Center"
+					   Margin="0,10,0,20"/>
 
-    </Grid>
+			<ListBox Width="400" Height="400">
+				<ListBoxItem>Item 1</ListBoxItem>
+				<ListBoxItem>Item 2</ListBoxItem>
+				<ListBoxItem>Item 3</ListBoxItem>
+			</ListBox>
+		</StackPanel>
+	</Grid>
+
 </Window>
