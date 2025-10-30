@@ -1,14 +1,5 @@
 ﻿using Calculadora_IMC.ViewModels;
-using System.Text;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Calculadora_IMC
 {
@@ -17,7 +8,8 @@ namespace Calculadora_IMC
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new MainWindowViewModel();
+            var navigationService = new NavigationService(MainFrame);
+            DataContext = new MainViewModel(navigationService);
         }
     }
 }

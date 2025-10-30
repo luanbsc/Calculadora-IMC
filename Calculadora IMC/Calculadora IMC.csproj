@@ -9,4 +9,14 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Page Remove="Styles\ButtonStyles.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Styles\ButtonStyles.xaml">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
 </Project>

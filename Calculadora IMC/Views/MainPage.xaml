@@ -1,0 +1,43 @@
+<Page x:Class="Calculadora_IMC.MainPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Calculadora_IMC"
+        mc:Ignorable="d">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/Styles/ButtonStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid>
+        <StackPanel HorizontalAlignment="Center"
+            Orientation="Vertical"
+            Margin="10">
+            <TextBlock Text="Usuários"
+				   FontSize="30"
+				   TextAlignment="Center"
+				   Margin="0,10,0,20"/>
+
+            <Button Content="Adicionar Usuário"
+            Width="120"
+            Height="40"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Center"
+			Margin="0,0,0,10"
+			Cursor="Hand"
+			Style="{StaticResource RoundedBlueButton}"
+			Command="{Binding AddUserCommand}"/>
+
+            <ListBox Width="400" Height="400">
+                <ListBoxItem>Item 1</ListBoxItem>
+                <ListBoxItem>Item 2</ListBoxItem>
+                <ListBoxItem>Item 3</ListBoxItem>
+            </ListBox>
+        </StackPanel>
+    </Grid>
+</Page>
