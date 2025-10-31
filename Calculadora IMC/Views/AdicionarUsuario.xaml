@@ -6,10 +6,58 @@
       xmlns:local="clr-namespace:Calculadora_IMC"
       mc:Ignorable="d">
 
-    <Grid>
-        <TextBlock Text="Ola, esta e a pagina inicial!" 
-                   HorizontalAlignment="Center" 
-                   VerticalAlignment="Center" 
-                   FontSize="24"/>
-    </Grid>
+	<Grid>
+		<StackPanel HorizontalAlignment="Center"
+					VerticalAlignment="Center"
+					Orientation="Vertical"
+					Margin="20"
+					Width="300">
+
+			<TextBlock Text="Cadastrar Usuário"
+					   HorizontalAlignment="Center"
+					   FontSize="24"
+					   Margin="0 0 0 20"/>
+
+			<!-- Nome -->
+			<TextBlock Text="Nome:"/>
+			<TextBox Text="{Binding Usuario.Nome, ValidatesOnDataErrors=True}"
+					 Height="30"
+					 Padding="5"/>
+			<TextBlock Foreground="Red" FontSize="12" Text="{Binding ErroNome}" Margin="0 0 0 10"/>
+
+			<!-- Idade -->
+			<TextBlock Text="Idade:"/>
+			<TextBox Text="{Binding IdadeTexto, ValidatesOnDataErrors=True}"
+					 Height="30"
+					 Padding="5"/>
+			<TextBlock Foreground="Red" FontSize="12" Text="{Binding ErroIdade}" Margin="0 0 0 10"/>
+
+			<!-- Altura -->
+			<TextBlock Text="Altura (cm):"/>
+			<TextBox Text="{Binding AlturaTexto, ValidatesOnDataErrors=True}"
+					 Height="30"
+					 Padding="5"/>
+			<TextBlock Foreground="Red" FontSize="12" Text="{Binding ErroAltura}" Margin="0 0 0 10"/>
+
+			<!-- Peso -->
+			<TextBlock Text="Peso (kg):"/>
+			<TextBox Text="{Binding PesoTexto, ValidatesOnDataErrors=True}"
+					 Height="30"
+					 Padding="5"/>
+			<TextBlock Foreground="Red" FontSize="12" Text="{Binding ErroPeso}" Margin="0 0 0 10"/>
+
+			<!-- Gênero -->
+			<TextBlock Text="Gênero:"/>
+			<ComboBox ItemsSource="{Binding Generos}" SelectedItem="{Binding Usuario.Genero, ValidatesOnDataErrors=True}"/>
+			<TextBlock Foreground="Red" FontSize="12" Text="{Binding ErroGenero}"/>
+
+			<!-- Botão -->
+			<Button Content="Cadastrar"
+					Width="200"
+					Height="35"
+					Margin="0 30 0 0"
+					HorizontalAlignment="Center"
+					Command="{Binding CadastrarCommand}"/>
+		</StackPanel>
+	</Grid>
 </Page>

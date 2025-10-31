@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Calculadora IMC" Height="600" Width="800"
 		WindowStartupLocation="CenterScreen"
-		ResizeMode="NoResize">
+		ResizeMode="CanMinimize">
 
 	<Grid>
 		<Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" />
