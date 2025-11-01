@@ -11,7 +11,14 @@
 					VerticalAlignment="Center"
 					Orientation="Vertical"
 					Margin="20"
-					Width="300">
+					Width="600">
+            
+            <Button Width="40" Height="40"
+			Command="{Binding GoBackCommand}"
+            HorizontalAlignment="Left"
+			FontSize="16"
+			Content="←"
+			ToolTip="Voltar"/>
 
 			<TextBlock Text="Cadastrar Usuário"
 					   HorizontalAlignment="Center"
@@ -19,37 +26,41 @@
 					   Margin="0 0 0 20"/>
 
 			<!-- Nome -->
-			<TextBlock Text="Nome:"/>
+            <TextBlock Text="Nome:" Width="300"/>
 			<TextBox Text="{Binding Usuario.Nome, ValidatesOnDataErrors=True}"
+                     Width="300"
 					 Height="30"
 					 Padding="5"/>
-			<TextBlock Foreground="Red" FontSize="12" Text="{Binding ErroNome}" Margin="0 0 0 10"/>
+            <TextBlock Foreground="Red" FontSize="12" Text="{Binding ErroNome}" Margin="0 0 0 10" Width="300"/>
 
 			<!-- Idade -->
-			<TextBlock Text="Idade:"/>
+            <TextBlock Text="Idade:" Width="300"/>
 			<TextBox Text="{Binding IdadeTexto, ValidatesOnDataErrors=True}"
+                     Width="300"
 					 Height="30"
 					 Padding="5"/>
-			<TextBlock Foreground="Red" FontSize="12" Text="{Binding ErroIdade}" Margin="0 0 0 10"/>
+            <TextBlock Foreground="Red" FontSize="12" Text="{Binding ErroIdade}" Margin="0 0 0 10" Width="300"/>
 
 			<!-- Altura -->
-			<TextBlock Text="Altura (m):"/>
+            <TextBlock Text="Altura (m):" Width="300"/>
 			<TextBox Text="{Binding AlturaTexto, ValidatesOnDataErrors=True}"
+                     Width="300"
 					 Height="30"
 					 Padding="5"/>
-			<TextBlock Foreground="Red" FontSize="12" Text="{Binding ErroAltura}" Margin="0 0 0 10"/>
+            <TextBlock Foreground="Red" FontSize="12" Text="{Binding ErroAltura}" Margin="0 0 0 10" Width="300"/>
 
 			<!-- Peso -->
-			<TextBlock Text="Peso (kg):"/>
+            <TextBlock Text="Peso (kg):" Width="300"/>
 			<TextBox Text="{Binding PesoTexto, ValidatesOnDataErrors=True}"
+                     Width="300"
 					 Height="30"
 					 Padding="5"/>
-			<TextBlock Foreground="Red" FontSize="12" Text="{Binding ErroPeso}" Margin="0 0 0 10"/>
+            <TextBlock Foreground="Red" FontSize="12" Text="{Binding ErroPeso}" Margin="0 0 0 10" Width="300"/>
 
 			<!-- Gênero -->
-			<TextBlock Text="Gênero:"/>
-			<ComboBox ItemsSource="{Binding Generos}" SelectedItem="{Binding Usuario.Genero, ValidatesOnDataErrors=True}"/>
-			<TextBlock Foreground="Red" FontSize="12" Text="{Binding ErroGenero}"/>
+            <TextBlock Text="Gênero:" Width="300"/>
+            <ComboBox ItemsSource="{Binding Generos}" SelectedItem="{Binding Usuario.Genero, ValidatesOnDataErrors=True}" Width="300"/>
+            <TextBlock Foreground="Red" FontSize="12" Text="{Binding ErroGenero}" Width="300"/>
 
 			<!-- Botão -->
 			<Button Content="Cadastrar"
