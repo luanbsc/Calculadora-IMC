@@ -33,7 +33,7 @@
 			<TextBlock Foreground="Red" FontSize="12" Text="{Binding ErroIdade}" Margin="0 0 0 10"/>
 
 			<!-- Altura -->
-			<TextBlock Text="Altura (cm):"/>
+			<TextBlock Text="Altura (m):"/>
 			<TextBox Text="{Binding AlturaTexto, ValidatesOnDataErrors=True}"
 					 Height="30"
 					 Padding="5"/>

@@ -262,8 +262,8 @@ namespace Calculadora_IMC.ViewModels
             "Tem certeza que deseja cadastrar este usuário?\n\n" +
             $"Nome: {Usuario.Nome}\n" +
             $"Idade: {Usuario.Idade}\n" +
-            $"Altura: {Usuario.Altura}\n" +
-            $"Peso: {Medicao.Peso}\n" +
+            $"Altura: {Usuario.Altura} m\n" +
+            $"Peso: {Medicao.Peso} kg\n" +
             $"Gênero: {Usuario.Genero}",
             "Confirmar cadastro",
             MessageBoxButton.YesNo,
@@ -275,6 +275,8 @@ namespace Calculadora_IMC.ViewModels
 
             Medicao.Data = DateTime.Now;
             Medicao.IMC = Medicao.Peso / (Usuario.Altura * Usuario.Altura);
+            Usuario.IMCUltimaMedicao = Medicao.IMC;
+            Usuario.PesoUltimaMedicao = Medicao.Peso;
             Usuario.Medicoes.Add(Medicao);
             Usuario.Id = Guid.NewGuid();
 

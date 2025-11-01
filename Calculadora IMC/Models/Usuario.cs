@@ -14,5 +14,7 @@ namespace Calculadora_IMC.Models
         public double Altura { get; set; }
         public string Genero { get; set; } = string.Empty;
         public List<Medicao> Medicoes { get; set; } = [];
+        public double PesoUltimaMedicao { get; set; }
+        public double IMCUltimaMedicao { get; set; }
     }
 }

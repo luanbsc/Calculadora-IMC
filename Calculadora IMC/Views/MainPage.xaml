@@ -39,9 +39,22 @@
 			Style="{StaticResource RoundedBlueButton}"
 			Command="{Binding AddUserCommand}"/>
 
-            <ListBox Width="400" Height="400"
-                ItemsSource="{Binding Usuarios}"
-                DisplayMemberPath="Nome"/>
+            <DataGrid ItemsSource="{Binding Usuarios}"
+            AutoGenerateColumns="False"
+            CanUserAddRows="False"
+            Width="600"
+            Height="400"
+            Margin="10">
+
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Nome" Binding="{Binding Nome}" Width="250"/>
+                    <DataGridTextColumn Header="Idade" Binding="{Binding Idade}" Width="40"/>
+                    <DataGridTextColumn Header="Altura (m)" Binding="{Binding Altura}" Width="70"/>
+                    <DataGridTextColumn Header="Peso (kg)" Binding="{Binding PesoUltimaMedicao}" Width="70"/>
+                    <DataGridTextColumn Header="Gênero" Binding="{Binding Genero}" Width="Auto"/>
+                    <DataGridTextColumn Header="IMC" Binding="{Binding IMCUltimaMedicao, StringFormat=N2}" Width="*"/>
+                </DataGrid.Columns>
+            </DataGrid>
         </StackPanel>
     </Grid>
 </Page>
