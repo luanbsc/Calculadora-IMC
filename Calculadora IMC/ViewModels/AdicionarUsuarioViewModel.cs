@@ -279,7 +279,7 @@ namespace Calculadora_IMC.ViewModels
             Usuario.Id = Guid.NewGuid();
 
             _usuarios.Add(Usuario);
-            _saveLoadService.SalvarArquivo(_usuarios);
+            _saveLoadService.SalvarUsuarios(_usuarios);
 
             MessageBox.Show(
                 $"Usuário {Usuario.Nome} cadastrado!"

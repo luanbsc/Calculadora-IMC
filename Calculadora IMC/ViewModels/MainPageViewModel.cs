@@ -10,7 +10,16 @@ namespace Calculadora_IMC.ViewModels
     {
         private readonly INavigationService _navigationService;
         private readonly SaveLoadService _saveLoadService;
-        private ObservableCollection<Usuario>  _usuarios;
+        private ObservableCollection<Usuario> _usuarios = new();
+        public ObservableCollection<Usuario> Usuarios
+        {
+            get => _usuarios;
+            set
+            {
+                _usuarios = value;
+                OnPropertyChanged();
+            }
+        }
         public ICommand AddUserCommand { get; }
         public ICommand PageLoadedCommand { get; }
 
@@ -18,19 +27,22 @@ namespace Calculadora_IMC.ViewModels
         {
             _navigationService = navigationService;
             _saveLoadService = saveLoadService;
-            _usuarios = saveLoadService.CarregarUsuarios();
+            Usuarios = saveLoadService.CarregarUsuarios();
             AddUserCommand = new RelayCommand(ExecutarAddUser);
             PageLoadedCommand = new RelayCommand(OnPageLoaded);
         }
 
         private void ExecutarAddUser()
         {
-            _navigationService.Navigate(new AdicionarUsuario(_navigationService, _saveLoadService, _usuarios));
+            _navigationService.Navigate(new AdicionarUsuario(_navigationService, _saveLoadService, Usuarios));
         }
 
         private void OnPageLoaded()
         {
-            _saveLoadService.CarregarUsuarios();
+            var usuariosCarregados = _saveLoadService.CarregarUsuarios();
+            Usuarios.Clear();
+            foreach (var u in usuariosCarregados)
+                Usuarios.Add(u);
         }
     }
 }

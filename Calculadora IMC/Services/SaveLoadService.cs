@@ -32,7 +32,7 @@ public class SaveLoadService
                ?? new ObservableCollection<Usuario>();
     }
 
-    public void SalvarArquivo(ObservableCollection<Usuario> usuarios)
+    public void SalvarUsuarios(ObservableCollection<Usuario> usuarios)
     {
         string json = JsonConvert.SerializeObject(usuarios, Formatting.Indented);
         File.WriteAllText(filePath, json);

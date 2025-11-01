@@ -39,11 +39,9 @@
 			Style="{StaticResource RoundedBlueButton}"
 			Command="{Binding AddUserCommand}"/>
 
-            <ListBox Width="400" Height="400">
-                <ListBoxItem>Item 1</ListBoxItem>
-                <ListBoxItem>Item 2</ListBoxItem>
-                <ListBoxItem>Item 3</ListBoxItem>
-            </ListBox>
+            <ListBox Width="400" Height="400"
+                ItemsSource="{Binding Usuarios}"
+                DisplayMemberPath="Nome"/>
         </StackPanel>
     </Grid>
 </Page>
