@@ -7,5 +7,6 @@ public interface INavigationService
     /// </summary>
     /// <param name="page">Página já instanciada</param>
     void Navigate(Page page);
+    void GoBack();
 }
 

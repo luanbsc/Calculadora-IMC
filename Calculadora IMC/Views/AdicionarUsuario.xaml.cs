@@ -1,14 +1,16 @@
-﻿using Calculadora_IMC.ViewModels;
+﻿using Calculadora_IMC.Models;
+using Calculadora_IMC.ViewModels;
+using System.Collections.ObjectModel;
 using System.Windows.Controls;
 
 namespace Calculadora_IMC
 {
     public partial class AdicionarUsuario : Page
     {
-        public AdicionarUsuario(INavigationService navigationService)
+        public AdicionarUsuario(INavigationService navigationService, SaveLoadService saveLoadService, ObservableCollection<Usuario> usuarios)
         {
             InitializeComponent();
-            DataContext = new AdicionarUsuarioViewModel(navigationService);
+            DataContext = new AdicionarUsuarioViewModel(navigationService, saveLoadService, usuarios);
         }
     }
 }

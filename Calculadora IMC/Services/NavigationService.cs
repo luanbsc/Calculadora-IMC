@@ -13,5 +13,13 @@ public class NavigationService : INavigationService
     {
         _frame.Navigate(page);
     }
+
+    public void GoBack()
+    {
+        if (_frame.CanGoBack)
+        {
+            _frame.GoBack();
+        }
+    }
 }
 

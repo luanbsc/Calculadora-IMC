@@ -6,10 +6,10 @@ namespace Calculadora_IMC
 {
     public partial class MainPage : Page
     {
-        public MainPage(INavigationService navigationService)
+        public MainPage(INavigationService navigationService, SaveLoadService saveLoadService)
         {
             InitializeComponent();
-            DataContext = new MainPageViewModel(navigationService);
+            DataContext = new MainPageViewModel(navigationService, saveLoadService);
         }
     }
 }

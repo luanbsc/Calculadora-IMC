@@ -9,7 +9,8 @@ namespace Calculadora_IMC
         {
             InitializeComponent();
             var navigationService = new NavigationService(MainFrame);
-            DataContext = new MainViewModel(navigationService);
+            var saveLoadService = new SaveLoadService();
+            DataContext = new MainViewModel(navigationService, saveLoadService);
         }
     }
 }

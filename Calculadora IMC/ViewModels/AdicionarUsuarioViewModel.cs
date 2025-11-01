@@ -3,6 +3,7 @@ using Calculadora_IMC.Models;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
@@ -18,9 +19,11 @@ namespace Calculadora_IMC.ViewModels
         private readonly INavigationService _navigationService;
         public ICommand GoBackCommand { get; }
         public ICommand CadastrarCommand { get; }
+        public ObservableCollection<Usuario> _usuarios;
         public List<string> Generos { get; } = ["Masculino", "Feminino", "Outro"];
         public Usuario Usuario { get; set; }
         public Medicao Medicao { get; set; }
+        private readonly SaveLoadService _saveLoadService;
 
         #region Variáveis de erros (para exibir na view)
         public string ErroNome
@@ -101,13 +104,15 @@ namespace Calculadora_IMC.ViewModels
                 OnPropertyChanged(nameof(PesoTexto));
             }
         }
-        public AdicionarUsuarioViewModel(INavigationService navigationService)
+        public AdicionarUsuarioViewModel(INavigationService navigationService, SaveLoadService saveLoadService, ObservableCollection<Usuario> usuarios)
         {
             _navigationService = navigationService;
+            _saveLoadService = saveLoadService;
             GoBackCommand = new RelayCommand(ExecutarGoBack);
             CadastrarCommand = new RelayCommand(ExecutarCadastrar);
             Usuario = new Usuario();
             Medicao = new Medicao();
+            _usuarios = usuarios;
         }
 
         #region INotifyDataErrorInfo
@@ -244,7 +249,7 @@ namespace Calculadora_IMC.ViewModels
 
         private void ExecutarGoBack()
         {
-            //_navigationService.GoBack();
+            _navigationService.GoBack();
         }
 
         private void ExecutarCadastrar()
@@ -270,10 +275,17 @@ namespace Calculadora_IMC.ViewModels
 
             Medicao.Data = DateTime.Now;
             Medicao.IMC = Medicao.Peso / (Usuario.Altura * Usuario.Altura);
+            Usuario.Medicoes.Add(Medicao);
+            Usuario.Id = Guid.NewGuid();
+
+            _usuarios.Add(Usuario);
+            _saveLoadService.SalvarArquivo(_usuarios);
 
             MessageBox.Show(
                 $"Usuário {Usuario.Nome} cadastrado!"
             );
+
+            ExecutarGoBack();
         }
     }
 }
