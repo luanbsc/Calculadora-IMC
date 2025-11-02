@@ -22,14 +22,16 @@ namespace Calculadora_IMC.ViewModels
         }
         public ICommand AddUserCommand { get; }
         public ICommand PageLoadedCommand { get; }
+        public ICommand DeleteUserCommand { get; }
 
         public MainPageViewModel(INavigationService navigationService, SaveLoadService saveLoadService)
         {
             _navigationService = navigationService;
             _saveLoadService = saveLoadService;
             Usuarios = saveLoadService.CarregarUsuarios();
-            AddUserCommand = new RelayCommand(ExecutarAddUser);
-            PageLoadedCommand = new RelayCommand(OnPageLoaded);
+            AddUserCommand = new RelayCommand(_ => ExecutarAddUser());
+            PageLoadedCommand = new RelayCommand(_ => OnPageLoaded());
+            DeleteUserCommand = new RelayCommand(obj => ExecutarDeleteUser(obj));
         }
 
         private void ExecutarAddUser()
@@ -37,12 +39,34 @@ namespace Calculadora_IMC.ViewModels
             _navigationService.Navigate(new AdicionarUsuario(_navigationService, _saveLoadService, Usuarios));
         }
 
+        private void ExecutarDeleteUser(object? obj)
+        {
+            if (obj is not Usuario usuario)
+                return;
+
+            var result = MessageBox.Show(
+            "Tem certeza que deseja deletar este usuário?\n\n" +
+            $"Nome: {usuario.Nome}\n" +
+            $"Idade: {usuario.Idade}\n" +
+            $"Altura: {usuario.Altura} m\n" +
+            $"Peso: {usuario.PesoUltimaMedicao} kg\n" +
+            $"Gênero: {usuario.Genero}\n" +
+            $"IMC: {usuario.IMCUltimaMedicao:F2}",
+            "Deletar Usuário",
+            MessageBoxButton.YesNo,
+            MessageBoxImage.Question
+            );
+
+            if (result != MessageBoxResult.Yes)
+                return;
+
+            Usuarios.Remove(usuario);
+            _saveLoadService.SalvarUsuarios(Usuarios);
+        }
+
         private void OnPageLoaded()
         {
-            var usuariosCarregados = _saveLoadService.CarregarUsuarios();
-            Usuarios.Clear();
-            foreach (var u in usuariosCarregados)
-                Usuarios.Add(u);
+            Usuarios = _saveLoadService.CarregarUsuarios();
         }
     }
 }

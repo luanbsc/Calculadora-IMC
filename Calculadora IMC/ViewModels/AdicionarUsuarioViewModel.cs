@@ -20,7 +20,7 @@ namespace Calculadora_IMC.ViewModels
         public ICommand GoBackCommand { get; }
         public ICommand CadastrarCommand { get; }
         public ObservableCollection<Usuario> _usuarios;
-        public List<string> Generos { get; } = ["Masculino", "Feminino", "Outro"];
+        public List<string> Generos { get; } = ["Masculino", "Feminino"];
         public Usuario Usuario { get; set; }
         public Medicao Medicao { get; set; }
         private readonly SaveLoadService _saveLoadService;
@@ -108,8 +108,8 @@ namespace Calculadora_IMC.ViewModels
         {
             _navigationService = navigationService;
             _saveLoadService = saveLoadService;
-            GoBackCommand = new RelayCommand(ExecutarGoBack);
-            CadastrarCommand = new RelayCommand(ExecutarCadastrar);
+            GoBackCommand = new RelayCommand(_ => ExecutarGoBack());
+            CadastrarCommand = new RelayCommand(_ => ExecutarCadastrar());
             Usuario = new Usuario();
             Medicao = new Medicao();
             _usuarios = usuarios;
@@ -265,7 +265,7 @@ namespace Calculadora_IMC.ViewModels
             $"Altura: {Usuario.Altura} m\n" +
             $"Peso: {Medicao.Peso} kg\n" +
             $"Gênero: {Usuario.Genero}",
-            "Confirmar cadastro",
+            "Cadastrar Usuário",
             MessageBoxButton.YesNo,
             MessageBoxImage.Question
             );

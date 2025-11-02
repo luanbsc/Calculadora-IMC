@@ -34,7 +34,7 @@
             Height="40"
             HorizontalAlignment="Right"
             VerticalAlignment="Center"
-			Margin="0,0,0,10"
+			Margin="0,0,5,10"
 			Cursor="Hand"
 			Style="{StaticResource RoundedBlueButton}"
 			Command="{Binding AddUserCommand}"/>
@@ -42,7 +42,7 @@
             <DataGrid ItemsSource="{Binding Usuarios}"
             AutoGenerateColumns="False"
             CanUserAddRows="False"
-            Width="600"
+            Width="625"
             Height="400"
             Margin="10">
 
@@ -51,8 +51,36 @@
                     <DataGridTextColumn Header="Idade" Binding="{Binding Idade}" Width="40"/>
                     <DataGridTextColumn Header="Altura (m)" Binding="{Binding Altura}" Width="70"/>
                     <DataGridTextColumn Header="Peso (kg)" Binding="{Binding PesoUltimaMedicao}" Width="70"/>
-                    <DataGridTextColumn Header="Gênero" Binding="{Binding Genero}" Width="Auto"/>
-                    <DataGridTextColumn Header="IMC" Binding="{Binding IMCUltimaMedicao, StringFormat=N2}" Width="*"/>
+                    <DataGridTextColumn Header="Gênero" Binding="{Binding Genero}" Width="60"/>
+                    <DataGridTextColumn Header="IMC" Binding="{Binding IMCUltimaMedicao, StringFormat=N2}" Width="35"/>
+                    <DataGridTemplateColumn Header="Ações" Width="100">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <Button Content="&#xE7B3;"
+                                    FontFamily="Segoe MDL2 Assets"
+                                    FontSize="16"
+                                    Background="Transparent"
+                                    BorderBrush="Transparent"
+                                    Padding="0"
+                                    Cursor="Hand"
+                                    Command="{Binding}"
+                                    CommandParameter="{Binding}"/>
+                                    
+                                    <Button Content="&#xE74D;"
+                                    FontFamily="Segoe MDL2 Assets"
+                                    Foreground="Red"
+                                    FontSize="16"
+                                    Background="Transparent"
+                                    BorderBrush="Transparent"
+                                    Padding="0"
+                                    Cursor="Hand"
+                                    Command="{Binding DataContext.DeleteUserCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                                    CommandParameter="{Binding}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>

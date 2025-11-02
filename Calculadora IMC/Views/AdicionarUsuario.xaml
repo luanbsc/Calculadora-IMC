@@ -16,8 +16,13 @@
             <Button Width="40" Height="40"
 			Command="{Binding GoBackCommand}"
             HorizontalAlignment="Left"
+            FontFamily="Segoe MDL2 Assets"
 			FontSize="16"
-			Content="←"
+			Content="&#xE72B;"
+            Background="Transparent"
+			BorderBrush="Transparent"
+			Padding="0"
+			Cursor="Hand"
 			ToolTip="Voltar"/>
 
 			<TextBlock Text="Cadastrar Usuário"
