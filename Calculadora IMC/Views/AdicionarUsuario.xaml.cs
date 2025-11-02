@@ -3,7 +3,7 @@ using Calculadora_IMC.ViewModels;
 using System.Collections.ObjectModel;
 using System.Windows.Controls;
 
-namespace Calculadora_IMC
+namespace Calculadora_IMC.Views
 {
     public partial class AdicionarUsuario : Page
     {

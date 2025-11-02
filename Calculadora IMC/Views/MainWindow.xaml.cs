@@ -1,7 +1,7 @@
 ﻿using Calculadora_IMC.ViewModels;
 using System.Windows;
 
-namespace Calculadora_IMC
+namespace Calculadora_IMC.Views
 {
     public partial class MainWindow : Window
     {

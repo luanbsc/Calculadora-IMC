@@ -2,7 +2,7 @@
 using System.Windows.Controls;
 using System.Windows.Navigation;
 
-namespace Calculadora_IMC
+namespace Calculadora_IMC.Views
 {
     public partial class MainPage : Page
     {

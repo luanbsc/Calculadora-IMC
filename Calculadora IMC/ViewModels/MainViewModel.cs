@@ -5,6 +5,7 @@ using System.IO;
 using Newtonsoft.Json;
 using System.Windows;
 using System.Windows.Input;
+using Calculadora_IMC.Views;
 
 namespace Calculadora_IMC.ViewModels
 {

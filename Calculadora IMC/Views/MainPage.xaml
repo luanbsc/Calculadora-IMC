@@ -1,4 +1,4 @@
-<Page x:Class="Calculadora_IMC.MainPage"
+<Page x:Class="Calculadora_IMC.Views.MainPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -57,16 +57,29 @@
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                    <Button Content="&#xE7B3;"
+                                    <Button Content="&#xE890;"
                                     FontFamily="Segoe MDL2 Assets"
                                     FontSize="16"
                                     Background="Transparent"
                                     BorderBrush="Transparent"
                                     Padding="0"
                                     Cursor="Hand"
-                                    Command="{Binding}"
-                                    CommandParameter="{Binding}"/>
-                                    
+                                    Command="{Binding DataContext.ViewUserCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                                    CommandParameter="{Binding}"
+                                    ToolTip="Visualizar usuário"/>
+
+                                    <Button Content="&#xE710;"
+                                    FontFamily="Segoe MDL2 Assets"
+                                    FontSize="16"
+                                    Foreground="Green"
+                                    Background="Transparent"
+                                    BorderBrush="Transparent"
+                                    Padding="0"
+                                    Cursor="Hand"
+                                    Command="{Binding DataContext.AddMedicaoCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                                    CommandParameter="{Binding}"
+                                    ToolTip="Adicionar nova medição"/>
+
                                     <Button Content="&#xE74D;"
                                     FontFamily="Segoe MDL2 Assets"
                                     Foreground="Red"
@@ -76,7 +89,8 @@
                                     Padding="0"
                                     Cursor="Hand"
                                     Command="{Binding DataContext.DeleteUserCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
-                                    CommandParameter="{Binding}"/>
+                                    CommandParameter="{Binding}"
+                                    ToolTip="Deletar usuário"/>
                                 </StackPanel>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>

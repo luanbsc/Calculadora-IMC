@@ -1,5 +1,6 @@
 ﻿using Calculadora_IMC.Core;
 using Calculadora_IMC.Models;
+using Calculadora_IMC.Views;
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Input;
@@ -23,6 +24,8 @@ namespace Calculadora_IMC.ViewModels
         public ICommand AddUserCommand { get; }
         public ICommand PageLoadedCommand { get; }
         public ICommand DeleteUserCommand { get; }
+        public ICommand AddMedicaoCommand { get; }
+        public ICommand ViewUserCommand { get; }
 
         public MainPageViewModel(INavigationService navigationService, SaveLoadService saveLoadService)
         {
@@ -32,6 +35,8 @@ namespace Calculadora_IMC.ViewModels
             AddUserCommand = new RelayCommand(_ => ExecutarAddUser());
             PageLoadedCommand = new RelayCommand(_ => OnPageLoaded());
             DeleteUserCommand = new RelayCommand(obj => ExecutarDeleteUser(obj));
+            AddMedicaoCommand = new RelayCommand(obj => ExecutarAddMedicao(obj));
+            ViewUserCommand = new RelayCommand(obj => ExecutarViewUser(obj));
         }
 
         private void ExecutarAddUser()
@@ -62,6 +67,19 @@ namespace Calculadora_IMC.ViewModels
 
             Usuarios.Remove(usuario);
             _saveLoadService.SalvarUsuarios(Usuarios);
+        }
+
+        private void ExecutarViewUser(object? obj)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void ExecutarAddMedicao(object? obj)
+        {
+            if (obj is not Usuario usuario)
+                return;
+
+            _navigationService.Navigate(new AdicionarMedicao(_navigationService, _saveLoadService, Usuarios, usuario));
         }
 
         private void OnPageLoaded()
