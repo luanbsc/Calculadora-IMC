@@ -11,6 +11,7 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/Styles/ButtonStyles.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/Styles/DataGridStyles.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/Styles/TextBoxStyles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Page.Resources>
@@ -37,6 +38,7 @@
             <TextBox x:Name="SearchBox"
             Width="300"
             Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"
+            Style="{StaticResource RoundedSearchTextBox}"
             VerticalContentAlignment="Center"
             Padding="5"
             Margin="0,20,0,10"/>
@@ -104,7 +106,9 @@
                                     Command="{Binding DataContext.DeleteUserCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
                                     CommandParameter="{Binding}"
                                     ToolTip="Deletar usuário"
-                                    Margin="10,0,0,0"/>
+                                    Margin="10,0,0,0"
+                                    TextOptions.TextFormattingMode="Display"
+                                    TextOptions.TextRenderingMode="ClearType"/>
                                 </StackPanel>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
