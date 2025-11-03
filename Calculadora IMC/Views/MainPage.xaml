@@ -68,18 +68,6 @@
                                     CommandParameter="{Binding}"
                                     ToolTip="Visualizar usuário"/>
 
-                                    <Button Content="&#xE710;"
-                                    FontFamily="Segoe MDL2 Assets"
-                                    FontSize="16"
-                                    Foreground="Green"
-                                    Background="Transparent"
-                                    BorderBrush="Transparent"
-                                    Padding="0"
-                                    Cursor="Hand"
-                                    Command="{Binding DataContext.AddMedicaoCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
-                                    CommandParameter="{Binding}"
-                                    ToolTip="Adicionar nova medição"/>
-
                                     <Button Content="&#xE74D;"
                                     FontFamily="Segoe MDL2 Assets"
                                     Foreground="Red"
