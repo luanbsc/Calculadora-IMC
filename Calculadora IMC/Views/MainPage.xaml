@@ -10,6 +10,7 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/Styles/ButtonStyles.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Styles/DataGridStyles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Page.Resources>
@@ -37,23 +38,49 @@
             Width="300"
             Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"
             VerticalContentAlignment="Center"
-            Padding="5"/>
+            Padding="5"
+            Margin="0,20,0,10"/>
 
             <DataGrid ItemsSource="{Binding UsuariosView}"
             AutoGenerateColumns="False"
             CanUserAddRows="False"
-            Width="625"
-            Height="350"
-            Margin="10">
+            IsReadOnly="True"
+            CanUserReorderColumns="False"
+            CanUserResizeRows="False"
+            CanUserResizeColumns="False"
+            Width="600"
+            Height="300"
+            Margin="10"
+            HeadersVisibility="Column"
+            GridLinesVisibility="None"
+            RowBackground="White"
+            AlternatingRowBackground="#F2F2F2"
+            BorderBrush="#DDD"
+            BorderThickness="1"
+            RowHeight="35"
+            HorizontalGridLinesBrush="#DDD"
+            VerticalGridLinesBrush="#DDD"
+            FontSize="14"
+            FontFamily="Segoe UI"
+            SelectionMode="Single"
+            SelectionUnit="FullRow"
+            CellStyle="{StaticResource CentralizedCellStyle}"
+            ColumnHeaderStyle="{StaticResource CustomColumnHeaderStyle}">
+
+                <DataGrid.Resources>
+                    <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Transparent"/>
+                    <SolidColorBrush x:Key="{x:Static SystemColors.ControlBrushKey}" Color="Transparent"/>
+                    <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}" Color="Black"/>
+                </DataGrid.Resources>
 
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Nome" Binding="{Binding Nome}" Width="250"/>
-                    <DataGridTextColumn Header="Idade" Binding="{Binding Idade}" Width="40"/>
-                    <DataGridTextColumn Header="Altura (m)" Binding="{Binding Altura}" Width="70"/>
-                    <DataGridTextColumn Header="Peso (kg)" Binding="{Binding PesoUltimaMedicao}" Width="70"/>
-                    <DataGridTextColumn Header="Gênero" Binding="{Binding Genero}" Width="60"/>
-                    <DataGridTextColumn Header="IMC" Binding="{Binding IMCUltimaMedicao, StringFormat=N2}" Width="35"/>
-                    <DataGridTemplateColumn Header="Ações" Width="100">
+                    <DataGridTextColumn Header="Nome" Binding="{Binding Nome}" Width="200" ElementStyle="{StaticResource CenteredTextBlockStyle}"/>
+                    <DataGridTextColumn Header="Idade" Binding="{Binding Idade}" Width="50" ElementStyle="{StaticResource CenteredTextBlockStyle}"/>
+                    <DataGridTextColumn Header="Altura (m)" Binding="{Binding Altura}" Width="80" ElementStyle="{StaticResource CenteredTextBlockStyle}"/>
+                    <DataGridTextColumn Header="Peso (kg)" Binding="{Binding PesoUltimaMedicao}" Width="75" ElementStyle="{StaticResource CenteredTextBlockStyle}"/>
+                    <DataGridTextColumn Header="Gênero" Binding="{Binding Genero}" Width="70" ElementStyle="{StaticResource CenteredTextBlockStyle}"/>
+                    <DataGridTextColumn Header="IMC" Binding="{Binding IMCUltimaMedicao, StringFormat=N2}" Width="40" ElementStyle="{StaticResource CenteredTextBlockStyle}"/>
+                    <DataGridTemplateColumn Header="Ações" Width="*">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
@@ -62,7 +89,6 @@
                                     FontSize="16"
                                     Background="Transparent"
                                     BorderBrush="Transparent"
-                                    Padding="0"
                                     Cursor="Hand"
                                     Command="{Binding DataContext.ViewUserCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
                                     CommandParameter="{Binding}"
@@ -74,17 +100,18 @@
                                     FontSize="16"
                                     Background="Transparent"
                                     BorderBrush="Transparent"
-                                    Padding="0"
                                     Cursor="Hand"
                                     Command="{Binding DataContext.DeleteUserCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
                                     CommandParameter="{Binding}"
-                                    ToolTip="Deletar usuário"/>
+                                    ToolTip="Deletar usuário"
+                                    Margin="10,0,0,0"/>
                                 </StackPanel>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                 </DataGrid.Columns>
             </DataGrid>
+
         </StackPanel>
     </Grid>
 </Page>
