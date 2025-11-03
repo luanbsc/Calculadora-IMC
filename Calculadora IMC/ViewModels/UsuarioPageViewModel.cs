@@ -31,6 +31,7 @@ namespace Calculadora_IMC.ViewModels
 
         public ObservableCollection<Usuario> Usuarios;
         public ICommand AddMedicaoCommand { get; }
+        public ICommand OpenChartCommand { get; }
         public ICommand GoBackCommand { get; }
         public UsuarioPageViewModel(INavigationService navigationService, SaveLoadService saveLoadService, ObservableCollection<Usuario> usuarios, Usuario usuario)
         {
@@ -39,7 +40,14 @@ namespace Calculadora_IMC.ViewModels
             Usuario = usuario;
             Usuarios = usuarios;
             AddMedicaoCommand = new RelayCommand(_ => ExecutarAddMedicao());
+            OpenChartCommand = new RelayCommand(_ => ExecutarOpenChart());
             GoBackCommand = new RelayCommand(_ => ExecutarGoBack());
+        }
+
+        private void ExecutarOpenChart()
+        {
+            ChartWindow chartWindow = new ChartWindow(Usuario.Medicoes);
+            chartWindow.Show();
         }
 
         private void ExecutarGoBack()

@@ -7,12 +7,6 @@
       xmlns:local="clr-namespace:Calculadora_IMC" xmlns:viewmodels="clr-namespace:Calculadora_IMC.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:UsuarioPageViewModel}"
       mc:Ignorable="d">
 
-    <i:Interaction.Triggers>
-        <i:EventTrigger EventName="Loaded">
-            <i:InvokeCommandAction Command="{Binding PageLoadedCommand}" />
-        </i:EventTrigger>
-    </i:Interaction.Triggers>
-
     <Grid>
         <StackPanel Margin="20" Width="600" HorizontalAlignment="Center">
             <Button Width="40" Height="40"

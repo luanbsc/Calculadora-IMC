@@ -2,7 +2,9 @@
 using Calculadora_IMC.Models;
 using Calculadora_IMC.Views;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Windows;
+using System.Windows.Data;
 using System.Windows.Input;
 
 namespace Calculadora_IMC.ViewModels
@@ -21,8 +23,28 @@ namespace Calculadora_IMC.ViewModels
                 OnPropertyChanged();
             }
         }
+        private ICollectionView _usuariosView = null!;
+        public ICollectionView UsuariosView
+        {
+            get => _usuariosView;
+            set { _usuariosView = value; OnPropertyChanged(nameof(UsuariosView)); }
+        }
+
+        private string _searchText = "";
+        public string SearchText
+        {
+            get => _searchText;
+            set
+            {
+                if (_searchText != value)
+                {
+                    _searchText = value;
+                    OnPropertyChanged(nameof(SearchText));
+                    UsuariosView.Refresh(); // atualiza o filtro
+                }
+            }
+        }
         public ICommand AddUserCommand { get; }
-        public ICommand PageLoadedCommand { get; }
         public ICommand DeleteUserCommand { get; }
         public ICommand ViewUserCommand { get; }
 
@@ -31,8 +53,9 @@ namespace Calculadora_IMC.ViewModels
             _navigationService = navigationService;
             _saveLoadService = saveLoadService;
             Usuarios = saveLoadService.CarregarUsuarios();
+            UsuariosView = CollectionViewSource.GetDefaultView(Usuarios);
+            UsuariosView.Filter = FilterUsuarios;
             AddUserCommand = new RelayCommand(_ => ExecutarAddUser());
-            PageLoadedCommand = new RelayCommand(_ => OnPageLoaded());
             DeleteUserCommand = new RelayCommand(obj => ExecutarDeleteUser(obj));
             ViewUserCommand = new RelayCommand(obj => ExecutarViewUser(obj));
         }
@@ -74,9 +97,15 @@ namespace Calculadora_IMC.ViewModels
             _navigationService.Navigate(new UsuarioPage(_navigationService, _saveLoadService, Usuarios, usuario));
         }
 
-        private void OnPageLoaded()
+        private bool FilterUsuarios(object obj)
         {
-            Usuarios = _saveLoadService.CarregarUsuarios();
+            if (obj is not Usuario usuario)
+                return false;
+
+            if (string.IsNullOrEmpty(SearchText))
+                return true;
+
+            return usuario.Nome.IndexOf(SearchText, StringComparison.OrdinalIgnoreCase) >= 0;
         }
     }
 }
