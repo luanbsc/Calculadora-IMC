@@ -103,7 +103,8 @@ O objetivo é permitir o <strong>cadastro e gerenciamento de usuários</strong>,
 
 <h2>📸 Demonstração</h2>
 <p align="center">
-  <img src="demo.gif" alt="Exemplo da Aplicação" width="600"/>
+  <img src="PaginaPrincipal.png" height="400" alt="Tela principal"/>
+  <img src="./GraficoHistoricoMedicoes.png" height="200" alt="Tela de exibição de gráfico">
 </p>
 
 <hr>
