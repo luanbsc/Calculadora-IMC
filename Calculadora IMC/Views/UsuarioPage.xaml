@@ -8,6 +8,15 @@
       mc:Ignorable="d"
       Background="#F7F5EB">
 
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/Styles/ListBoxStyles.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Styles/TextBoxStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
     <Grid>
         <StackPanel Margin="20" Width="600" HorizontalAlignment="Center">
             <Button Width="40" Height="40"
@@ -24,10 +33,7 @@
 
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <TextBlock Text="Informações do Usuário"
-                HorizontalAlignment="Center"
-                FontSize="24"
-                Margin="70 0 0 20"/>
+                <TextBlock Text="Informações do Usuário" Style="{StaticResource PageTitleTextBlock}" Margin="70 0 0 20"/>
 
                 <Button Content="&#xE710;"
                 Margin="60 0 0 0"
@@ -58,69 +64,39 @@
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0 0 0 20">
-                <TextBlock Text="Nome: " 
-                FontSize="16"
-                FontWeight="Bold"
-                VerticalAlignment="Center"/>
+                <TextBlock Text="Nome: " Style="{StaticResource LabelTextBlock}"/>
 
-                <TextBlock Text="{Binding Usuario.Nome}" 
-                FontSize="16"
-                VerticalAlignment="Center"/>
+                <TextBlock Text="{Binding Usuario.Nome}" Style="{StaticResource ValueTextBlock}"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0 0 0 20">
-                <TextBlock Text="Idade: " 
-                FontSize="16"
-                FontWeight="Bold"
-                VerticalAlignment="Center"/>
+                <TextBlock Text="Idade: " Style="{StaticResource LabelTextBlock}"/>
 
-                <TextBlock Text="{Binding Usuario.Idade}" 
-                FontSize="16"
-                VerticalAlignment="Center"/>
+                <TextBlock Text="{Binding Usuario.Idade}" Style="{StaticResource ValueTextBlock}"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0 0 0 20">
-                <TextBlock Text="Altura: " 
-                FontSize="16"
-                FontWeight="Bold"
-                VerticalAlignment="Center"/>
+                <TextBlock Text="Altura: " Style="{StaticResource LabelTextBlock}"/>
 
-                <TextBlock Text="{Binding Usuario.Altura, StringFormat={}{0} m}" 
-                FontSize="16"
-                VerticalAlignment="Center"/>
+                <TextBlock Text="{Binding Usuario.Altura, StringFormat={}{0} m}" Style="{StaticResource ValueTextBlock}"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0 0 0 20">
-                <TextBlock Text="Peso: " 
-                FontSize="16"
-                FontWeight="Bold"
-                VerticalAlignment="Center"/>
+                <TextBlock Text="Peso: " Style="{StaticResource LabelTextBlock}"/>
 
-                <TextBlock Text="{Binding Usuario.PesoUltimaMedicao, StringFormat={}{0} kg}" 
-                FontSize="16"
-                VerticalAlignment="Center"/>
+                <TextBlock Text="{Binding Usuario.PesoUltimaMedicao, StringFormat={}{0} kg}" Style="{StaticResource ValueTextBlock}"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0 0 0 20">
-                <TextBlock Text="Gênero: " 
-                FontSize="16"
-                FontWeight="Bold"
-                VerticalAlignment="Center"/>
+                <TextBlock Text="Gênero: " Style="{StaticResource LabelTextBlock}"/>
 
-                <TextBlock Text="{Binding Usuario.Genero}" 
-                FontSize="16"
-                VerticalAlignment="Center"/>
+                <TextBlock Text="{Binding Usuario.Genero}" Style="{StaticResource ValueTextBlock}"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0 0 0 20">
-                <TextBlock Text="IMC: " 
-                FontSize="16"
-                FontWeight="Bold"
-                VerticalAlignment="Center"/>
+                <TextBlock Text="IMC: " Style="{StaticResource LabelTextBlock}"/>
 
-                <TextBlock Text="{Binding Usuario.IMCUltimaMedicao, StringFormat={}{0:F2}}" 
-                FontSize="16"
-                VerticalAlignment="Center"/>
+                <TextBlock Text="{Binding Usuario.IMCUltimaMedicao, StringFormat={}{0:F2}}" Style="{StaticResource ValueTextBlock}"/>
             </StackPanel>
 
             <TextBlock Text="Histórico de Medições:"
@@ -129,12 +105,13 @@
             HorizontalAlignment="Center"/>
 
             <ListBox Width="400" Height="160"
-            ItemsSource="{Binding Usuario.Medicoes}">
+            ItemsSource="{Binding Usuario.Medicoes}"
+                     Style="{StaticResource MedicoesListBox}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal" Margin="5">
                             <TextBlock Text="{Binding Peso, StringFormat={}{0} kg}"
-                           FontSize="16" Width="250"/>
+                           FontSize="16" Width="230"/>
 
                             <TextBlock Text="{Binding Data, StringFormat={}{0:dd/MM/yyyy HH:mm}}"
                            FontSize="16" Width="auto"/>

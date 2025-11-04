@@ -22,9 +22,10 @@
             Orientation="Vertical"
             Margin="10">
             <TextBlock Text="Usuários"
-				   FontSize="30"
-				   TextAlignment="Center"
-				   Margin="0,35,0,20"/>
+			FontSize="30"
+			TextAlignment="Center"
+			Margin="0,35,0,20"
+            Style="{StaticResource PageTitleTextBlock}"/>
 
             <Button Content="Adicionar Usuário"
             Width="120"
