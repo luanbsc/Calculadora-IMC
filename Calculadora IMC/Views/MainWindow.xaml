@@ -10,6 +10,7 @@
 		ResizeMode="CanMinimize">
 
 	<Grid>
+        <!-- Frame utilizado para navegar entre Pages -->
 		<Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" />
 	</Grid>
 

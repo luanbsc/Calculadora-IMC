@@ -11,6 +11,7 @@
 		ResizeMode="CanMinimize">
 
     <Grid>
+        <!-- Gráfico -->
         <lvc:CartesianChart
         Series="{Binding Series}"
         XAxes="{Binding XAxes}"

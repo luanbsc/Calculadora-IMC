@@ -22,6 +22,7 @@
 					Margin="20"
 					Width="600">
 
+            <!-- Botão de voltar página -->
             <Button Width="40" Height="40"
 			Command="{Binding GoBackCommand}"
             HorizontalAlignment="Left"
@@ -34,6 +35,7 @@
 			Cursor="Hand"
 			ToolTip="Voltar"/>
 
+            <!-- Título -->
             <TextBlock Text="Adicionar nova medição"
 					   HorizontalAlignment="Center"
 					   FontSize="24"

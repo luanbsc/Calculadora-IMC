@@ -21,12 +21,15 @@
         <StackPanel HorizontalAlignment="Center"
             Orientation="Vertical"
             Margin="10">
+
+            <!-- Título -->
             <TextBlock Text="Usuários"
 			FontSize="30"
 			TextAlignment="Center"
 			Margin="0,35,0,20"
             Style="{StaticResource PageTitleTextBlock}"/>
 
+            <!-- Botão que redireciona para tela de cadastro de usuário -->
             <Button Content="Adicionar Usuário"
             Width="120"
             Height="40"
@@ -37,6 +40,7 @@
 			Style="{StaticResource RoundedGreenButton}"
 			Command="{Binding AddUserCommand}"/>
 
+            <!-- Input para pesquisar usuários -->
             <TextBox x:Name="SearchBox"
             Width="300"
             Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"
@@ -45,6 +49,7 @@
             Padding="5"
             Margin="0,20,0,10"/>
 
+            <!-- DataGrid de exibição de usuários -->
             <DataGrid ItemsSource="{Binding UsuariosView}"
             AutoGenerateColumns="False"
             CanUserAddRows="False"
@@ -117,7 +122,6 @@
                     </DataGridTemplateColumn>
                 </DataGrid.Columns>
             </DataGrid>
-
         </StackPanel>
     </Grid>
 </Page>
