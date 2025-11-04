@@ -42,43 +42,27 @@
                        Style="{StaticResource PageTitle}"/>
 
 			<!-- Nome -->
-            <TextBlock Text="Nome:" Width="300" Style="{StaticResource LabelText}"/>
-			<TextBox Text="{Binding Usuario.Nome, ValidatesOnDataErrors=True}"
-                     Width="300"
-					 Height="30"
-					 Padding="5"
-                     Style="{StaticResource InputTextBox}"/>
+            <TextBlock Text="Nome:" Style="{StaticResource LabelText}"/>
+            <TextBox Text="{Binding Usuario.Nome, ValidatesOnDataErrors=True}" Style="{StaticResource InputTextBox}" Padding="5"/>
             <TextBlock Text="{Binding ErroNome}" Style="{StaticResource ErrorLabel}"/>
 
 			<!-- Idade -->
-            <TextBlock Text="Idade:" Width="300" Style="{StaticResource LabelText}"/>
-			<TextBox Text="{Binding IdadeTexto, ValidatesOnDataErrors=True}"
-                     Width="300"
-					 Height="30"
-					 Padding="5"
-                     Style="{StaticResource InputTextBox}"/>
+            <TextBlock Text="Idade:" Style="{StaticResource LabelText}"/>
+            <TextBox Text="{Binding IdadeTexto, ValidatesOnDataErrors=True}" Style="{StaticResource InputTextBox}" Padding="5"/>
             <TextBlock Text="{Binding ErroIdade}" Style="{StaticResource ErrorLabel}"/>
 
 			<!-- Altura -->
-            <TextBlock Text="Altura (m):" Width="300" Style="{StaticResource LabelText}"/>
-			<TextBox Text="{Binding AlturaTexto, ValidatesOnDataErrors=True}"
-                     Width="300"
-					 Height="30"
-					 Padding="5"
-                     Style="{StaticResource InputTextBox}"/>
+            <TextBlock Text="Altura (m):" Style="{StaticResource LabelText}"/>
+            <TextBox Text="{Binding AlturaTexto, ValidatesOnDataErrors=True}" Style="{StaticResource InputTextBox}" Padding="5"/>
             <TextBlock Text="{Binding ErroAltura}" Style="{StaticResource ErrorLabel}"/>
 
 			<!-- Peso -->
-            <TextBlock Text="Peso (kg):" Width="300" Style="{StaticResource LabelText}"/>
-			<TextBox Text="{Binding PesoTexto, ValidatesOnDataErrors=True}"
-                     Width="300"
-					 Height="30"
-					 Padding="5"
-                     Style="{StaticResource InputTextBox}"/>
+            <TextBlock Text="Peso (kg):" Style="{StaticResource LabelText}"/>
+            <TextBox Text="{Binding PesoTexto, ValidatesOnDataErrors=True}" Style="{StaticResource InputTextBox}" Padding="5"/>
             <TextBlock Text="{Binding ErroPeso}" Style="{StaticResource ErrorLabel}"/>
 
 			<!-- Gênero -->
-            <TextBlock Text="Gênero:" Width="300" Style="{StaticResource LabelText}"/>
+            <TextBlock Text="Gênero:" Style="{StaticResource LabelText}"/>
             <ComboBox ItemsSource="{Binding Generos}" SelectedItem="{Binding Usuario.Genero, ValidatesOnDataErrors=True}" Width="300"/>
             <TextBlock Text="{Binding ErroGenero}" Style="{StaticResource ErrorLabel}"/>
 
