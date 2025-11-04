@@ -2,7 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <!-- Estilo de botao arredondado verde -->
-    <Style x:Key="RoundedBlueButton" TargetType="Button">
+    <Style x:Key="RoundedGreenButton" TargetType="Button">
         <Setter Property="Background" Value="#228c01"/>
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="FontWeight" Value="Bold"/>

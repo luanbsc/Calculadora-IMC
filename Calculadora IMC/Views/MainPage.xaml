@@ -4,7 +4,8 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:sys="clr-namespace:System;assembly=mscorlib"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:viewmodels="clr-namespace:Calculadora_IMC.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:MainPageViewModel}"
-      mc:Ignorable="d">
+      mc:Ignorable="d"
+      Background="#F7F5EB">
 
     <Page.Resources>
         <ResourceDictionary>
@@ -32,7 +33,7 @@
             VerticalAlignment="Center"
 			Margin="0,0,5,10"
 			Cursor="Hand"
-			Style="{StaticResource RoundedBlueButton}"
+			Style="{StaticResource RoundedGreenButton}"
 			Command="{Binding AddUserCommand}"/>
 
             <TextBox x:Name="SearchBox"
@@ -40,7 +41,6 @@
             Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"
             Style="{StaticResource RoundedSearchTextBox}"
             VerticalContentAlignment="Center"
-            Padding="5"
             Margin="0,20,0,10"/>
 
             <DataGrid ItemsSource="{Binding UsuariosView}"
