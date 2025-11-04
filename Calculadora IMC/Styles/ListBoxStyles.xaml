@@ -34,6 +34,7 @@
         </Setter>
     </Style>
 
+	<!-- Estilo da ListBox -->
     <Style x:Key="MedicoesListBox" TargetType="ListBox">
         <Setter Property="Width" Value="400"/>
         <Setter Property="Height" Value="180"/>
