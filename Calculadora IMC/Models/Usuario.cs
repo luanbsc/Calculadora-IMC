@@ -3,12 +3,19 @@ using System.Collections.ObjectModel;
 
 namespace Calculadora_IMC.Models
 {
+    /// <summary>
+    /// Representa uma medição realizada pelo usuário, contendo data, peso e IMC.
+    /// </summary>
     public class Medicao
     {
         public DateTime Data { get; set; }
         public double Peso { get; set; }
         public double IMC { get; set; }
     }
+
+    /// <summary>
+    /// Representa um usuário do sistema com informações pessoais e histórico de medições.
+    /// </summary>
     public class Usuario : ViewModelBase
     {
         private Guid _id;
