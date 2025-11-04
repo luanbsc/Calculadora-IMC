@@ -12,18 +12,9 @@
 
     <Grid>
         <lvc:CartesianChart
-        LegendPosition="Right">
-            <lvc:CartesianChart.Series>
-                <lvc:SeriesCollection>
-                    <lvc:XamlLineSeries
-                    SeriesName="Mary"
-                    Values="5, 10, 8, 4"/>
-                    <lvc:XamlColumnSeries
-                    SeriesName="Ana"
-                    Values="4, 7, 3, 8"/>
-                </lvc:SeriesCollection>
-            </lvc:CartesianChart.Series>
-        </lvc:CartesianChart>
+        Series="{Binding Series}"
+        XAxes="{Binding XAxes}"
+        LegendPosition="Right" />
     </Grid>
 
 </Window>
