@@ -6,6 +6,11 @@ using System.Collections.ObjectModel;
 
 namespace Calculadora_IMC.ViewModels
 {
+    /// <summary>
+    /// ViewModel responsável por fornecer os dados para exibição em gráficos,
+    /// incluindo séries de Peso e IMC de um conjunto de <see cref="Medicao"/>.
+    /// Configura as séries e os eixos para o gráfico.
+    /// </summary>
     public class ChartViewModel : ViewModelBase
     {
         public ObservableCollection<Medicao> Medicoes { get; set; }

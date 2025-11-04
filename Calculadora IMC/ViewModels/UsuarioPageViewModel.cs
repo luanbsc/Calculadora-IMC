@@ -11,6 +11,10 @@ using System.Windows.Input;
 
 namespace Calculadora_IMC.ViewModels
 {
+    /// <summary>
+    /// ViewModel responsável por gerenciar a visualização detalhada de um <see cref="Calculadora_IMC.Models.Usuario"/>,
+    /// incluindo histórico de medições e navegação para adicionar novas medições ou visualizar gráficos.
+    /// </summary>
     internal class UsuarioPageViewModel : ViewModelBase
     {
         private readonly INavigationService _navigationService;
@@ -44,17 +48,26 @@ namespace Calculadora_IMC.ViewModels
             GoBackCommand = new RelayCommand(_ => ExecutarGoBack());
         }
 
+        /// <summary>
+        /// Executa a abertura da janela de gráficos com o histórico de medições do usuário.
+        /// </summary>
         private void ExecutarOpenChart()
         {
             ChartWindow chartWindow = new ChartWindow(Usuario.Medicoes);
             chartWindow.Show();
         }
 
+        /// <summary>
+        /// Navega para a página anterior.
+        /// </summary>
         private void ExecutarGoBack()
         {
             _navigationService.GoBack();
         }
 
+        /// <summary>
+        /// Navega para a página de adição de medição para o usuário atual.
+        /// </summary>
         private void ExecutarAddMedicao()
         {
             _navigationService.Navigate(new AdicionarMedicao(_navigationService, _saveLoadService, Usuarios, Usuario));

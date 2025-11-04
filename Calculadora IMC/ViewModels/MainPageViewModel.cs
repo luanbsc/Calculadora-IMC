@@ -9,6 +9,10 @@ using System.Windows.Input;
 
 namespace Calculadora_IMC.ViewModels
 {
+    /// <summary>
+    /// ViewModel responsável pelo gerenciamento da tela principal,
+    /// incluindo exibição, filtragem, adição, visualização e remoção de <see cref="Usuario"/>.
+    /// </summary>
     public class MainPageViewModel : ViewModelBase
     {
         private readonly INavigationService _navigationService;
@@ -60,11 +64,18 @@ namespace Calculadora_IMC.ViewModels
             ViewUserCommand = new RelayCommand(obj => ExecutarViewUser(obj));
         }
 
+        /// <summary>
+        /// Navega para a tela de cadastro de usuário.
+        /// </summary>
         private void ExecutarAddUser()
         {
             _navigationService.Navigate(new AdicionarUsuario(_navigationService, _saveLoadService, Usuarios));
         }
 
+        /// <summary>
+        /// Deleta o usuário informado após confirmação do usuário.
+        /// </summary>
+        /// <param name="obj">Objeto esperado do tipo <see cref="Usuario"/>.</param>
         private void ExecutarDeleteUser(object? obj)
         {
             if (obj is not Usuario usuario)
@@ -90,6 +101,10 @@ namespace Calculadora_IMC.ViewModels
             _saveLoadService.SalvarUsuarios(Usuarios);
         }
 
+        /// <summary>
+        /// Navega para a tela de visualização de detalhes de um usuário.
+        /// </summary>
+        /// <param name="obj">Objeto esperado do tipo <see cref="Usuario"/>.</param>
         private void ExecutarViewUser(object? obj)
         {
             if (obj is not Usuario usuario)
@@ -97,6 +112,11 @@ namespace Calculadora_IMC.ViewModels
             _navigationService.Navigate(new UsuarioPage(_navigationService, _saveLoadService, Usuarios, usuario));
         }
 
+        /// <summary>
+        /// Filtra os usuários de acordo com o texto de busca.
+        /// </summary>
+        /// <param name="obj">Objeto esperado do tipo <see cref="Usuario"/>.</param>
+        /// <returns>Retorna <c>true</c> se o usuário deve ser exibido, caso contrário <c>false</c>.</returns>
         private bool FilterUsuarios(object obj)
         {
             if (obj is not Usuario usuario)

@@ -9,6 +9,9 @@ using Calculadora_IMC.Views;
 
 namespace Calculadora_IMC.ViewModels
 {
+    /// <summary>
+    /// ViewModel responsável por inicializar a aplicação e navegar para a página principal (<see cref="MainPage"/>).
+    /// </summary>
     public class MainViewModel : ViewModelBase
     {
         private readonly INavigationService _navigationService;

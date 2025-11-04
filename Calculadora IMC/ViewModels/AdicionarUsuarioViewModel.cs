@@ -14,6 +14,9 @@ using System.Windows.Input;
 
 namespace Calculadora_IMC.ViewModels
 {
+    /// <summary>
+    /// ViewModel responsável por gerenciar a criação e validação de um novo <see cref="Calculadora_IMC.Models.Usuario"/>.
+    /// </summary>
     public class AdicionarUsuarioViewModel : ViewModelBase, INotifyDataErrorInfo
     {
         private readonly INavigationService _navigationService;
@@ -247,11 +250,19 @@ namespace Calculadora_IMC.ViewModels
         }
         #endregion
 
+        /// <summary>
+        /// Navega para a página anterior.
+        /// </summary>
         private void ExecutarGoBack()
         {
             _navigationService.GoBack();
         }
 
+        /// <summary>
+        /// Valida os dados do usuário e da medição, exibe uma confirmação ao usuário e, se confirmado,
+        /// cadastra o novo <see cref="Calculadora_IMC.Models.Usuario"/> com sua medição inicial, salva
+        /// os dados e retorna para a tela anterior.
+        /// </summary>
         private void ExecutarCadastrar()
         {
             Validate();

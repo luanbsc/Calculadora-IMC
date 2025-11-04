@@ -13,6 +13,9 @@ using System.Windows.Input;
 
 namespace Calculadora_IMC.ViewModels
 {
+    /// <summary>
+    /// ViewModel responsável por gerenciar a adição de novas medições para um <see cref="Usuario"/>.
+    /// </summary>
     public class AdicionarMedicaoViewModel : ViewModelBase, INotifyDataErrorInfo
     {
         private readonly INavigationService _navigationService;
@@ -129,11 +132,18 @@ namespace Calculadora_IMC.ViewModels
         }
         #endregion
 
+        /// <summary>
+        /// Navega para a página anterior.
+        /// </summary>
         private void ExecutarGoBack()
         {
             _navigationService.GoBack();
         }
 
+        /// <summary>
+        /// Adiciona a nova medição ao usuário, calculando o IMC e salvando os dados.
+        /// Valida o peso antes de adicionar.
+        /// </summary>
         private void ExecutarAdicionarMedicao()
         {
             Validate();
